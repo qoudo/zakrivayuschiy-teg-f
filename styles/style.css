@@ -1,7 +1,7 @@
 .page {
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--main-font-family, 'Inter', sans-serif);
+  font-family: var(--main-font-family);
   font-variation-settings: 'wght' var(--normal-font-weight);
   background-color: var(--main-color);
   background-image: var(--backgriund-gradient);
@@ -9,13 +9,52 @@
   color: var(--accent-color);
 }
 
-/* Вспомогательные классы */
+/* Вспомогательные стили */
 
 .card {
   margin-inline: auto;
   border: 2px solid var(--accent-color, #000000);
   background: var(--main-color, #ffffff);
   max-inline-size: 696px;
+}
+
+.button {
+  position: relative;
+  z-index: 1;
+  padding: 10px 36px;
+  border: 2px solid var(--accent-color);
+  background: var(--main-color);
+  font-family: var(--additional-font-family);
+  font-size: 14px;
+  text-transform: inherit;
+  transition: box-shadow .3s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0 0 var(--accent-color);
+}
+
+.button::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  inline-size: 100%;
+  block-size: 100%;
+  inset: 0;
+  background: var(--accent-color);
+  transition: transform .5s ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+.button:hover::before {
+  transform: scaleX(1);
 }
 
 /* Шапка */
@@ -36,7 +75,7 @@
 
 .header__subtitle {
   margin-block-start: 20px;
-  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+  font-size: clamp(.875rem, .6769rem + .8451vw, 1.4375rem);
 }
 
 .header__theme-menu {
@@ -64,14 +103,14 @@
 }
 
 .theme-menu__button:not(:disabled)::after {
-  content: "";
   display: block;
-  background: currentColor;
-  transition: transform 0.3s ease;
+  content: "";
+  transition: transform .3s ease;
   transform: scaleX(0);
   transform-origin: left;
-  inline-size: 100%;
   block-size: 2px;
+  inline-size: 100%;
+  background: currentColor;
 }
 
 .theme-menu__button:hover {
@@ -88,13 +127,125 @@
 }
 
 .theme-menu__button:disabled {
-  opacity: .6;
   cursor: default;
   pointer-events: none;
+  opacity: .6;
 }
 
 .theme-menu__button:disabled::before {
-  content: "▶";
   position: absolute;
+  content: "▶";
   inset-inline-start: -20px;
+}
+
+/* Карточка */
+
+.card + .card {
+  margin-top: 57px;
+}
+
+.card__title {
+  padding: 4px 10px;
+  font-variation-settings: "wght" var(--bold-font-weight);
+  font-size: 18px;
+}
+
+.card__image-wrapper {
+  position: relative;
+  border-block-start: 2px solid var(--accent-color);
+}
+
+.card__label {
+  position: absolute;
+  z-index: 1;
+  inset-inline-end: 25px;
+  inset-block-start: 25px;
+  color: var(--accent-color);
+  font-family: var(--additional-font-family);
+  font-size: 14px;
+  text-transform: uppercase;
+  opacity: .5;
+}
+
+.card__image {
+  display: block;
+  object-fit: cover;
+  object-position: right;
+  inline-size: 100%;
+  aspect-ratio: 1/1;
+}
+
+.card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 27px;
+  border-block-start: 2px solid var(--accent-color);
+  padding: 25px 30px 0 25px;
+  font-size: 18px;
+  line-height: calc(21/18);
+}
+
+.card__interface {
+  display: flex;
+  justify-content: end;
+  align-items: stretch;
+  gap: 5px;
+  padding: 25px;
+}
+
+.card__icon-button {
+  padding: 0;
+  background: transparent;
+  border: 2px solid transparent;
+  transition: border-color .3s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.card__icon-button:focus {
+  outline: none;
+}
+
+.card__icon-button:focus-visible {
+  border-color: var(--accent-color);
+}
+
+.button__text,
+.button__icon {
+  color: var(--accent-color);
+}
+
+.button__icon {
+  block-size: 22px;
+  inline-size: 22px;
+}
+
+.like-icon {
+  block-size: 36px;
+  inline-size: 39px;
+}
+
+/* Кнопка сохранить */
+
+.button--save {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 15px 20px;
+  margin: 54px auto 105px;
+}
+
+/* Media-запросы */
+
+@media (width < 376px) {
+  .button--save {
+    flex-direction: column;
+  }
+
+  .button__icon {
+    block-size: 28px;
+    inline-size: 28px;
+  }
 }
