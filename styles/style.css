@@ -4,5 +4,97 @@
   font-family: var(--main-font-family, 'Inter', sans-serif);
   font-variation-settings: 'wght' var(--normal-font-weight);
   background-color: var(--main-color);
+  background-image: var(--backgriund-gradient);
+  background-size: cover;
   color: var(--accent-color);
+}
+
+/* Вспомогательные классы */
+
+.card {
+  margin-inline: auto;
+  border: 2px solid var(--accent-color, #000000);
+  background: var(--main-color, #ffffff);
+  max-inline-size: 696px;
+}
+
+/* Шапка */
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--additional-font-family);
+  text-transform: uppercase;
+  margin-block-start: 100px;
+  margin-block-end: 102px;
+}
+
+.header__title {
+  margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+}
+
+.header__subtitle {
+  margin-block-start: 20px;
+  font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
+}
+
+.header__theme-menu {
+  margin-block: 25px;
+}
+
+/* Меню */
+
+.theme-menu__list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-inline-start: 20px;
+}
+
+.theme-menu__button {
+  position: relative;
+  border: none;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: transparent;
+  transition: opacity .3s ease;
+  cursor: pointer;
+  appearance: none;
+}
+
+.theme-menu__button:not(:disabled)::after {
+  content: "";
+  display: block;
+  background: currentColor;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  transform-origin: left;
+  inline-size: 100%;
+  block-size: 2px;
+}
+
+.theme-menu__button:hover {
+  opacity: .6;
+}
+
+.theme-menu__button:focus {
+  outline: none;
+  opacity: .6;
+}
+
+.theme-menu__button:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.theme-menu__button:disabled {
+  opacity: .6;
+  cursor: default;
+  pointer-events: none;
+}
+
+.theme-menu__button:disabled::before {
+  content: "▶";
+  position: absolute;
+  inset-inline-start: -20px;
 }
