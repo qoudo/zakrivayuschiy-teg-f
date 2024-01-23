@@ -13,8 +13,8 @@
 
 .card {
   margin-inline: auto;
-  border: 2px solid var(--accent-color, #000000);
-  background: var(--main-color, #ffffff);
+  border: 2px solid var(--accent-color);
+  background: var(--main-color);
   max-inline-size: 696px;
 }
 
