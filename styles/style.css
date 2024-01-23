@@ -240,7 +240,7 @@
 
 /* Media-запросы */
 
-@media (width < 376px) {
+@media (width <= 375px) {
   .button--save {
     flex-direction: column;
   }
