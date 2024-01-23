@@ -161,6 +161,7 @@
   inset-inline-end: 25px;
   inset-block-start: 25px;
   color: var(--accent-color);
+  text-shadow: 0 0 1px var(--main-color);
   font-family: var(--additional-font-family);
   font-size: 14px;
   text-transform: uppercase;
@@ -247,5 +248,18 @@
   .button__icon {
     block-size: 28px;
     inline-size: 28px;
+  }
+}
+
+/* Проверка поддержки стилей */
+
+@supports (
+  (-webkit-text-stroke: 1px var(--main-color)) or
+    (text-stroke: 1px var(--main-color))
+) {
+  .card__label {
+    text-shadow: none;
+    -webkit-text-stroke: 1px var(--main-color);
+    text-stroke: 1px var(--main-color);
   }
 }
