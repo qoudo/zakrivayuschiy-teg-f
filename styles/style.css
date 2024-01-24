@@ -349,6 +349,36 @@
   inline-size: 100%;
 }
 
+/* Фильтры */
+
+.filter-brightness {
+  filter: brightness(2);
+}
+
+.filter-contrast {
+  filter: contrast(.8);
+}
+
+.filter-grayscale {
+  filter: grayscale(1);
+}
+
+.filter-hue-rotate {
+  filter: hue-rotate(95deg);
+}
+
+.filter-sepia {
+  filter: sepia(1);
+}
+
+.filter-invert {
+  filter: invert(1);
+}
+
+.filter-multiple {
+  filter: opacity(.9) blur(2px) contrast(3) sepia(.2);
+}
+
 /* Вспомогательные стили */
 
 .obj-scl-down {
