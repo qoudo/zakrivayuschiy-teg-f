@@ -22,7 +22,8 @@
 .button {
   position: relative;
   z-index: 1;
-  padding: 10px 36px;
+  min-width: 130px;
+  min-height: 38px;
   border: 2px solid var(--accent-color);
   background: var(--main-color);
   font-family: var(--additional-font-family);
@@ -72,6 +73,8 @@
 
 .header__logo {
   margin-block-start: clamp(7.5rem, 7.1479rem + 1.5023vw, 8.5rem);
+  font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
+  text-decoration: none;
 }
 
 .header__title {
@@ -197,6 +200,7 @@
 }
 
 .card__icon-button {
+  max-height: 38px;
   padding: 0;
   background: transparent;
   border: 2px solid transparent;
